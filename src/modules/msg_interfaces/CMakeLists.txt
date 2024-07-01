@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 project(msg_interfaces)
 
 set(CMAKE_CXX_STANDARD 17)
+message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)

@@ -19,9 +19,12 @@ RUN pip install ultralytics
 # clear tmp files and cache
 RUN rm -rf /tmp/libs && rm -rf /var/lib/apt/lists/*
 
-# create robocar user
+# Create robocar user (with root privileges)
 RUN useradd -s /bin/bash -m robocar
 
+# Grant sudo permissions to robocar user (with root privileges)
+RUN echo 'robocar ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers
+  
 USER robocar
 WORKDIR /host
 ENTRYPOINT /bin/bash
